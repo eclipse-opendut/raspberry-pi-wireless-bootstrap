@@ -66,7 +66,7 @@ impl RaspberryPiCli {
 
             The default password is "{PASSWORD}". Make sure to change it.
 
-            When you're done configuring, you want to run the {SETUP_COMPLETE_SCRIPT_PATH} script,
+            When you're done configuring, you want to run `{SETUP_COMPLETE_SCRIPT_PATH} &`,
             which will deactivate the hotspot and reboot the Raspberry Pi.
         "#);
 

@@ -81,6 +81,8 @@ fn setup_mode_systemd_unit() -> String {
 fn setup_complete_script() -> String {
     formatdoc!(r#"
         #!/bin/sh
+        echo "Disabling WiFi hotspot and rebooting in 10 seconds..."
+        sleep 10
 
         systemctl disable {SYSTEMD_SERVICE_NAME}
         reboot
