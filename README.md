@@ -20,3 +20,9 @@ Tested to work with:
 
 Does not work with:
 * Raspberry Pi 3B (WiFi hotspot appears, but cannot connect to it)
+
+
+## Development
+
+You can build a release by running `.ci/create_release.sh`.
+You may want to increment the version number in the script before you do so.
