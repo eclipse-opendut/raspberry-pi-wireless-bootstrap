@@ -14,7 +14,8 @@ cross build --release --target=x86_64-unknown-linux-gnu
 tar --create --gzip \
     --file=$out_path \
     --directory=target/x86_64-unknown-linux-gnu/release/ \
-    raspberry_pi_wireless_bootstrap
+    raspberry_pi_wireless_bootstrap \
+    ../../../README.md
 
 echo "Distribution has been built underneath:\n\n  $out_path"
 echo "\nNow you need to manually upload it to a GitHub release."
