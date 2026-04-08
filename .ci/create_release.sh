@@ -23,14 +23,14 @@ for target in $targets; do
 
 
     distribution_dir=target/distribution
-    rm -r $distribution_dir
+    rm -r $distribution_dir || true
     mkdir --parents $distribution_dir
 
     out_path=$distribution_dir/raspberry_pi_wireless_bootstrap_${target}_${version}.tar.gz
 
     tar --create --gzip \
-        --file=$out_path \
-        --directory=target/$target/release/ \
+        --file="$out_path" \
+        --directory="target/$target/release/" \
         raspberry_pi_wireless_bootstrap \
         ../../../README.md
 
