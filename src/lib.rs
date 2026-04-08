@@ -8,7 +8,7 @@ use script::SETUP_COMPLETE_SCRIPT_PATH;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
-use anyhow::anyhow;
+use anyhow::{anyhow, Context};
 use tracing::{debug, info};
 
 // NetworkManager uses 10.42.x.0/24 for WiFi hotspots by default, where the 'x' is incremented for each wlan-interface.
@@ -93,7 +93,8 @@ impl RaspberryPiCli {
             .arg(image)
             .arg(storage_to_flash);
 
-        let status = command.status()?;
+        let status = command.status()
+            .context("Error while running `rpi-imager` command for flashing SD card.\nMake sure, rpi-imager is installed on your system.")?;
 
         if status.success() {
             Ok(())
